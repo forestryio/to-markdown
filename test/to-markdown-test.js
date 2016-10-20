@@ -68,7 +68,7 @@ test('images', function () {
     ['<img src="http://example.com/logo.png" />', '![](http://example.com/logo.png)', 'img with no alt'],
     ['<img src=logo.png>', '![](logo.png)', 'img with relative src'],
     ['<img src=logo.png alt="Example logo">', '![Example logo](logo.png)', 'img with alt'],
-    ['<img src="logo.png" alt="hello" class="world">', '![hello](logo.png)\n{:.world}', 'img with attributes'],
+    ['<img src="logo.png" alt="hello" class="world">', '![hello](logo.png){:.world}', 'img with attributes'],
     ['<img>', '', 'img no src']
   ])
 })

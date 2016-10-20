@@ -222,7 +222,7 @@ toMarkdown = function (input, options) {
     .replace(/\n{3,}/g, '\n\n')
 }
 
-function attrs(node) {
+function attrs(node, inline) {
   let out = ""
 
   if (node.id && node.id != "") { out += "#" + node.id }
@@ -237,7 +237,7 @@ function attrs(node) {
   }
 
   if (out != "") {
-    return "\n{:" +
+    return (inline ? "" : "\n") + "{:" +
       out.trim() +
     "}"
   }
