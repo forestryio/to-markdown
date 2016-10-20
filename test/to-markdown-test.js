@@ -42,10 +42,11 @@ test('code', function () {
 test('headings', function () {
   runTestCases([
     ['<h1>Hello world</h1>', '# Hello world', 'h1'],
-    ['<h3>Hello world</h3>', '### Hello world', 'h3'],
     ['<h6>Hello world</h6>', '###### Hello world', 'h6'],
+    ['<h8>Hello world</h8>', '<h8>Hello world</h8>', 'invalid heading'],
+    ["<h1 class=\"hello\">Hello World</h1>", "# Hello World\n{:.hello}", "h1 with attributes"],
     ['<h4><i>Hello</i> world</h4>', '#### _Hello_ world', 'h4 with child'],
-    ['<h8>Hello world</h8>', '<h8>Hello world</h8>', 'invalid heading']
+    ['<h3>Hello world</h3>', '### Hello world', 'h3']
   ])
 })
 
@@ -67,6 +68,7 @@ test('images', function () {
     ['<img src="http://example.com/logo.png" />', '![](http://example.com/logo.png)', 'img with no alt'],
     ['<img src=logo.png>', '![](logo.png)', 'img with relative src'],
     ['<img src=logo.png alt="Example logo">', '![Example logo](logo.png)', 'img with alt'],
+    ['<img src="logo.png" alt="hello" class="world">', '![hello](logo.png)\n{:.world}', 'img with attributes'],
     ['<img>', '', 'img no src']
   ])
 })

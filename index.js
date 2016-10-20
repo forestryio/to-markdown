@@ -222,6 +222,32 @@ toMarkdown = function (input, options) {
     .replace(/\n{3,}/g, '\n\n')
 }
 
+function attrs(node) {
+  let out = ""
+
+  if (node.id && node.id != "") { out += "#" + node.id }
+  if (node.className && node.className != "") {
+    out += " ." + node.className.split(/\s+/).join(
+      " ."
+    )
+  }
+
+  if (node.getAttribute("target")) {
+    out += " target=\"" + node.getAttribute("target") + "\""
+  }
+
+  if (out != "") {
+    return "\n{:" +
+      out.trim() +
+    "}"
+  }
+
+  else {
+    return out
+  }
+}
+
+toMarkdown.attrs = attrs
 toMarkdown.isBlock = isBlock
 toMarkdown.isVoid = isVoid
 toMarkdown.outer = outer
