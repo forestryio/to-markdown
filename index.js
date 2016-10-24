@@ -223,7 +223,7 @@ toMarkdown = function (input, options) {
 }
 
 function attrs(node, inline) {
-  let out = ""
+  var out = ""
 
   if (node.id && node.id != "") { out += "#" + node.id }
   if (node.className && node.className != "") {
