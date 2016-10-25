@@ -20,10 +20,6 @@
     "watchify": "^2.5.0"
   },
 
-  "engines": {
-    "node": "^4"
-  },
-
   "keywords": [
     "markdown"
   ],
