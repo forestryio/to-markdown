@@ -3,7 +3,7 @@
   "name": "@forestryio/to-markdown",
   "url": "http://domchristie.github.com/to-markdown/",
   "description": "HTML-to-Markdown converter",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "browser": {
     "jsdom": false
   },
