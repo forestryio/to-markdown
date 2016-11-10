@@ -223,7 +223,9 @@ toMarkdown = function (input, options) {
 }
 
 function attrs(node, inline) {
-  var out = ""
+  var blacklist = /^(id|src|href|class|alt|title|on[a-zA-Z]+)/
+    , out = ""
+
 
   if (node.id && node.id != "") { out += "#" + node.id }
   if (node.className && node.className != "") {
@@ -232,8 +234,12 @@ function attrs(node, inline) {
     )
   }
 
-  if (node.getAttribute("target")) {
-    out += " target=\"" + node.getAttribute("target") + "\""
+  for (var i = 0; i < node.attributes.length; i++) {
+    var attr = node.attributes[i]
+
+    if (!attr.name.match(blacklist)) {
+      out+= " " + attr.name + "=\"" + attr.value + "\""
+    }
   }
 
   if (out != "") {
